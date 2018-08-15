@@ -1,2 +1,3 @@
 # Hugo-blog
-This is my new blog, old one is gone :)
+
+基于Hugo的个人博客。
