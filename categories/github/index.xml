@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on Luolr&#39;s Blog</title>
-    <link>http://luolr.github.io/categories/github/</link>
+    <link>https://luolr.github.io/categories/github/</link>
     <description>Recent content in Github on Luolr&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://luolr.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luolr.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用GitHub Pages搭建静态网站</title>
-      <link>http://luolr.github.io/post/github-pages/</link>
+      <link>https://luolr.github.io/post/github-pages/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://luolr.github.io/post/github-pages/</guid>
+      <guid>https://luolr.github.io/post/github-pages/</guid>
       <description>&lt;p&gt;作为一个程序员，个人博客肯定是必不可少的，虽然大家都善用百度、谷歌，感觉搭个博客还不是小case。但我还是想水上一篇，毕竟老司机虽多，新人也不少嘛，顺带帮自己总结下经验。
 &lt;/p&gt;</description>
     </item>
