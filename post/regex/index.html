@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="正则表达式的快速入门">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>正则那些事 &middot; Luolr&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://luolr.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://luolr.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://luolr.github.io/css/my.css">
+  
+  
+    <script src="http://luolr.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://luolr.github.io/">BLOG</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/luolr" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>正则那些事</h1>
+  <h2>正则表达式的快速入门</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>03 Jun 2017, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://luolr.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <blockquote>
+<p>本文的目标，就是让你能够了解正则是什么，怎么用，并且学的轻松，用的快乐：）
+</p>
+</blockquote>
+
+<h3 id="前言">前言</h3>
+
+<p>想必有不少人跟我一样，身为一名开发人员，却对正则这东西知之甚少，甚至于完全不会用。我很长一段时间也是，工作也有段时间了，却只会写一些很简单的正则匹配，想写个电话号码匹配，我都要抓耳挠腮半天最后百度，甚是惭愧。 于是乎，我痛下决心要弄懂它。不过学习的过程总是痛苦的，为了监督自己，我觉得边学边写会是个好主意。毕竟，输入的最好方式是输出。</p>
+
+<h2 id="那么-什么是正则呢">那么，什么是正则呢？</h2>
+
+<p>正则表达式描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。</p>
+
+<p>简单来说，就是用于一种用于描述匹配规则的工具，通常用于检索、替换符合某些规则的文本，在很多场合都用得到，就例如前文提到的电话号码匹配。你实际生活中肯定也用过不少，比如在文件夹检索文件，在页面中查找关键字等，这些都跟正则有关。</p>
+
+<p>假如你写了一个正则表达式，如何验证它的正确性呢？正则表达式引擎通常会提供一个“测试指定的字符串是否匹配一个正则表达式”的方法，比如JavaScript提供了两个方法：<code>patt.test(str)</code>和<code>str.match(patt)</code>。</p>
+
+<p>请打开浏览器的控制台，将你的的正则表达式（例如/\w{2,10}/）输入到控制台中，然后输入.test(str)并回车，str就是你要测试的字符串，正确的话控制台就会输出true，反之为false。</p>
+
+<hr />
+
+<h2 id="step1-初窥门径">step1：初窥门径</h2>
+
+<p>本文为了方便理解，会结合一个个问题，来循序渐进的讲解正则相关的知识。</p>
+
+<p><strong><em>问题1：假如你要在一篇文章中找出he的字符串，那么正则怎么写？</em></strong></p>
+
+<p>这就是最简单的正则表达式，你只需要使用正则表达式he。这样就能找到那些包含he的字符串，不过，很多单词也包含了he这个字符串，例如hello、heart等。如果直接使用he来检索的话，这些单词也会被找出，如果想精准的找出he这个单词的话，那么就该 <code>\b</code> 出场了。</p>
+
+<p><code>\b</code> 是正则表达式规定的一个特殊代码，也叫元字符，代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是 <code>\b</code> 并不匹配这些单词分隔字符中的任何一个，它只匹配一个位置。</p>
+
+<p>所以这道题的答案是：<code>\bhe\b</code> ，同理，假如你要查找的是hello world，那么就应该用<code>\bhello\bworld\b</code></p>
+
+<hr />
+
+<h2 id="元字符">元字符</h2>
+
+<p>现在，你已经认识了一个元字符，其实正则表达式里还有更多的元字符，将这些组合在一起使用，可以构造出功能更强大、更复杂的正则表达式。那么，先来认识一下它们：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">元字符</th>
+<th align="left">简单说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">.</td>
+<td align="left">匹配除换行符以外的任意字符</td>
+</tr>
+
+<tr>
+<td align="left">\w</td>
+<td align="left">匹配字母或数字或下划线或汉字</td>
+</tr>
+
+<tr>
+<td align="left">\s</td>
+<td align="left">匹配任意的空白符</td>
+</tr>
+
+<tr>
+<td align="left">\d</td>
+<td align="left">匹配数字0-9</td>
+</tr>
+
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配单词的开始或结束</td>
+</tr>
+
+<tr>
+<td align="left">\W</td>
+<td align="left">匹配任意不是字母或数字或下划线或汉字的字符</td>
+</tr>
+
+<tr>
+<td align="left">\S</td>
+<td align="left">匹配任意不是空白符的字符</td>
+</tr>
+
+<tr>
+<td align="left">\D</td>
+<td align="left">匹配任意非数字的字符</td>
+</tr>
+
+<tr>
+<td align="left">\B</td>
+<td align="left">匹配不是单词开头或结尾的位置</td>
+</tr>
+
+<tr>
+<td align="left">[^x]</td>
+<td align="left">匹配除了x以外的任意字符</td>
+</tr>
+
+<tr>
+<td align="left">^</td>
+<td align="left">匹配字符串的开始</td>
+</tr>
+
+<tr>
+<td align="left">$</td>
+<td align="left">匹配字符的的结束</td>
+</tr>
+</tbody>
+</table>
+
+<p>其中s用于匹配任意的空白符，包括空格、制表符（Tab）、换行符、中文全角空格等，[^x]表示不匹配^后面跟着的字符串，^和$则表示匹配字符的的开始和结束，用在正则表达式的开头和结尾，这两个用来用户验证输入的内容时非常合适。</p>
+
+<p><strong><em>问题2：如何匹配一个类似4 G的由数字、空格、字母组成的字符串呢？</em></strong></p>
+
+<p>很简单，我们只需要将我们学到的元字符组合起来就行了，答案是：<code>^\d\s\w$</code></p>
+
+<hr />
+
+<h2 id="限定符">限定符</h2>
+
+<p>你现在认识了不少有用的元字符，这些元字符在实际使用的时候，往往不是单个数字或者字母等，可能会重复很多次，这时要怎么办呢？</p>
+
+<p><strong><em>问题3：假如要匹配一个类似于Leonardo.DiCaprio或者Hugh.Jackman的由两个长度为4到8位的单词以及一个.组成的名字，正则应该怎么写呢？</em></strong></p>
+
+<p>在这里，我们就要引入一个新的概念，用来表示重复次数的限定符。下面是正则表达式中所有的限定符：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">元字符</th>
+<th align="left">简单说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">*</td>
+<td align="left">重复零次或更多次</td>
+</tr>
+
+<tr>
+<td align="left">+</td>
+<td align="left">重复一次或更多次</td>
+</tr>
+
+<tr>
+<td align="left">?</td>
+<td align="left">重复零次或一次</td>
+</tr>
+
+<tr>
+<td align="left">{n}</td>
+<td align="left">重复n次</td>
+</tr>
+
+<tr>
+<td align="left">{n,}</td>
+<td align="left">重复n次或更多次</td>
+</tr>
+
+<tr>
+<td align="left">{n, m}</td>
+<td align="left">重复n到m次</td>
+</tr>
+</tbody>
+</table>
+
+<p>那么就很简单了，长度4到8位的单词可以用 <code>\w{4,8}</code> 来表示，不过.呢，直接使用.是肯定不行的，正则会将它解释成匹配除换行符以外的任意字符， 这时你就需要使用 <code>\</code> 来取消这些字符的特殊意义。 例如使用 <code>\.</code> 和 <code>\*</code> 来匹配 <code>.</code> 和 <code>*</code>，当然要查找\本身，你可以使用 <code>\\</code>。</p>
+
+<p>那么，答案就是 <code>^\w{4,8}\.\w{4,8}$</code></p>
+
+<hr />
+
+<h2 id="step2-小试牛刀">step2：小试牛刀</h2>
+
+<p>在认识了这么多元字符和限定符之后，或许我们可以来挑战一下实际会用的那些正则了。</p>
+
+<p><strong><em>问题4：如何匹配一个手机号码呢？</em></strong></p>
+
+<p>要解决这个问题，我们先要理清楚手机号码由哪几部分组成，手机号首先是由限定的3位数字（号码段）和任意8位数字组成的11位数字，号码段根据运营商分为以下几种（统计于2017.06）：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">运营商</th>
+<th align="left">号码段</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">移动</td>
+<td align="left">134、135、136、137、138、139、147、150、151、152、157、158、159、170、178、182、183、187、188</td>
+</tr>
+
+<tr>
+<td align="left">联通</td>
+<td align="left">130、131、132、145、155、156、170、175、176、185、186</td>
+</tr>
+
+<tr>
+<td align="left">电信</td>
+<td align="left">133、149、153、170、173、177、180、181、189</td>
+</tr>
+</tbody>
+</table>
+
+<p>由于号码段的存在，我们又得引入一个新的概念——分枝条件，即x|y，它主要用来匹配条件x或y。例如 [s|f]ox 可以匹配sox或fox。</p>
+
+<p>然后我们在结合之前的知识，那么答案就是 <code>^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17([0,3,5-8]))|(18([0-3]|[5-9])))\d{8}$</code> ，看起来很复杂，不过仔细看的话，其实只是简单的排列组合罢了。</p>
+
+<p>我们在做一道类似的题目巩固一下。</p>
+
+<p><strong><em>问题5：如何匹配一个可能是XXX-XXXXXXX、XXX-XXXXXXXX、XXXX-XXXXXXX、XXXX-XXXXXXXX、XXXXXXX和XXXXXXXX格式的固定电话呢？</em></strong></p>
+
+<p>我们将问题整理一下，座机可能有区号（3-4位），也可能没有区号，号码也可能是7位或者8位，那么总共有3+7、3+8、4+7、4+8、7位、8位的6种情况。</p>
+
+<p>首先，我们可以使用\d{3,4}来表示3-4位的区号，然后有区号后面可以会跟一个-，当然也可以没有区号，那么就变成(\d{3,4}-)?，7-8位的号码很好表示，即\d{7,8}，再将两者进行组合，答案就出来了：^(\d{3,4}-)?\d{7,8}$</p>
+
+<hr />
+
+<h2 id="step3-小有所成">step3：小有所成</h2>
+
+<p>到这为止，你已经算是完成了入门准备，后面将会涉及到更多复杂的正则表达式。</p>
+
+<p>前面我们已经提到了如何重复单个字符（直接在字符后面加上限定符就行了），但如果想要重复多个字符又该怎么办？你可以用小括号来指定子表达式(也叫做分组)，然后你就可以指定这个子表达式的重复次数了，当然你也可以对子表达式进行其它一些操作。</p>
+
+<p>那么如何创建一个子表达式呢，默认情况下，一对括号之内的字符就是一个子表达式，它会自动拥有一个组号，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推。然后，我们就可以开始学习关于分组的语法了。</p>
+
+<p>后向引用用于重复搜索前面某个分组匹配的文本。例如，\1代表分组1匹配的文本。难以理解？请看示例：\b(\w+)\b\s+\1\b可以用来匹配重复的单词，像go go, 或者di di。</p>
+
+<p>不过你也可以自己指定子表达式的组名。要指定一个子表达式的组名，可以使用这样的语法：(?<name>exp)或者(?&lsquo;name&rsquo;exp)，这样exp的组名就被指定为name了。在引用这个分组时，需要使用\k<name>，那么上一个例子也可以写作\b(?<Word>\w+)\b\s+\k<Word>\b。当然，关于分组还有很多特定用途的语法。下面列出了最常用的一些：</p>
+
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>捕获</td>
+<td>(exp)</td>
+<td>匹配exp,并捕获文本到自动命名的组里</td>
+</tr>
+
+<tr>
+<td>捕获</td>
+<td>(?<name>exp)</td>
+<td>匹配exp,并命名为name，也可写作(?&lsquo;name&rsquo;exp)</td>
+</tr>
+
+<tr>
+<td>捕获</td>
+<td>(?:exp)</td>
+<td>匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+
+<tr>
+<td>零宽断言</td>
+<td>(?=exp)</td>
+<td>匹配exp前面的位置</td>
+</tr>
+
+<tr>
+<td>零宽断言</td>
+<td>(?&lt;=exp)</td>
+<td>匹配exp后面的位置</td>
+</tr>
+
+<tr>
+<td>零宽断言</td>
+<td>(?!exp)</td>
+<td>匹配后面跟的不是exp的位置</td>
+</tr>
+
+<tr>
+<td>零宽断言</td>
+<td>(?&lt;!exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+
+<tr>
+<td>注释</td>
+<td>(?#comment)</td>
+<td>用于提供注释让人阅读</td>
+</tr>
+</tbody>
+</table>
+
+<p>对于前两个语法，前面都已经解释过了，第三个 <code>（(?:exp)）</code> 不会改变正则表达式的处理方式，只是这样的组匹配的内容不会被捕获成组，也不会拥有组号。</p>
+
+<p><a href="http://bbs.csdn.net/topics/120096404">“那么，我为什么要这么做呢？”</a>——好问题，你觉得为什么呢？</p>
+
+<p>接下来的四个用于查找在某些内容(但并不包括这些内容)之前或之后的东西，也就是说它们像\b、^、$那样用于指定一个位置，这个位置应该满足一定的条件(即断言)，因此它们也被称为零宽断言。最好还是拿例子来说明吧：</p>
+
+<p>(?=exp)也叫零宽度正预测先行断言，它断言自身出现的位置的后面能匹配表达式exp。比如\b\w+(?=ing\b)，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，如查找I’m singing while you’re dancing.时，它会匹配sing和danc。</p>
+
+<p>(?&lt;=exp)也叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp。比如(?&lt;=\bre)\w+\b会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在查找reading a book时，它匹配ading。</p>
+
+<p>同理，(?!exp)也叫零宽度负预测先行断言，它断言自身出现的位置的后面能不匹配表达式exp。例如：\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b匹配不包含连续字符串abc的单词。</p>
+
+<p>同理，(?&lt;!exp)也叫零宽度负回顾后发断言，它断言此位置的前面不能匹配表达式exp：(?&lt;![a-z])\d{7}匹配前面不是小写字母的七位数字。</p>
+
+<p><strong><em>问题6：如何匹配一个不包含属性的简单HTML标签内里的内容？</em></strong></p>
+
+<p>这道题有点难度，我们一点点来做。首先，一个HTML标签一般长这样：<code>\&lt;div\&gt;abc\&lt;/div\&gt;</code>，我们要拿到的就是里面的abc。我们再仔细看，标签前面是一个&lt;div&gt;，后面跟着&lt;\/div&gt;，div的部分是一样的，这里可以使用分组的知识。</p>
+
+<p>我们先将前后两个部分写出来：(?&lt;=&lt;\w+&gt;)和(?=&lt;\/\w+&gt;)，再引入分组的概念，得到 <code>(?&lt;=&lt;\w+&gt;)和(?=&lt;\/\1&gt;)</code>。
+最后，再将标签和内容组合起来：<code>(?&lt;=&lt;\w+&gt;).*(?=&lt;\/\1&gt;)</code>，这样就得到我们的答案了。</p>
+
+<hr />
+
+<h2 id="补充">补充</h2>
+
+<p>当正则表达式中包含能接受重复的限定符时，通常的行为是（在使整个表达式能得到匹配的前提下）匹配尽可能多的字符。以这个表达式为例：<code>a.*b</code>，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，它会匹配整个字符串aabab。这被称为贪婪匹配。</p>
+
+<p>有时，我们更需要懒惰匹配，也就是匹配尽可能少的字符。前面给出的限定符都可以被转化为懒惰匹配模式，只要在它后面加上一个问号?。这样 <code>.*?</code> 就意味着匹配任意数量的重复，但是在能使整个匹配成功的前提下使用最少的重复。现在看看懒惰版的例子吧：</p>
+
+<p><code>a.*?b</code> 就会去匹配最少的字符串，以a开始，以b结束的字符串。如果把它应用于aabab的话，它会匹配aab（因为它是从左往右匹配，得到第一个符合规则的就不会继续匹配了)。</p>
+
+<p>如果你看到了这里，恭喜你，你已经完成了正则表达式的修炼！你可以去其他人面前露一手了。</p>
+
+<h4 id="参考资料">参考资料</h4>
+
+<ul>
+<li><a href="http://www.runoob.com/regexp/regexp-syntax.html">正则表达式 – 语法 | 菜鸟教程</a></li>
+<li><a href="https://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a></li>
+</ul>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://luolr.github.io/post/web-optimization/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://luolr.github.io/post/web-optimization/">前端优化归纳总结</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://luolr.github.io/post/sideslip-deleting/">微信小程序的侧滑删除实现</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://luolr.github.io/post/sideslip-deleting/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="http://luolr.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

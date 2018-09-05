@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Luolr&#39;s Blog</title>
+    <link>http://luolr.github.io/</link>
+    <description>Recent content on Luolr&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://luolr.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用GitHub Pages搭建静态网站</title>
+      <link>http://luolr.github.io/post/github-pages/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://luolr.github.io/post/github-pages/</guid>
+      <description>&lt;p&gt;作为一个程序员，个人博客肯定是必不可少的，虽然大家都善用百度、谷歌，感觉搭个博客还不是小case。但我还是想水上一篇，毕竟老司机虽多，新人也不少嘛，顺带帮自己总结下经验。
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>微信小程序的侧滑删除实现</title>
+      <link>http://luolr.github.io/post/sideslip-deleting/</link>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://luolr.github.io/post/sideslip-deleting/</guid>
+      <description>&lt;p&gt;最近这段时间，我一直都在和微信小程序打交道，在开发中也遇到了各种各样的问题，有些有意思的问题我会记录下来，方便以后回顾。
+比如最近接到一个需求，需要实现列表中的侧滑删除功能。这个功能在APP应用中十分常见，比如微信自身就有这个功能，不过在小程序上倒是很少见，主要是体验不好，原因后面也会讲到。
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>正则那些事</title>
+      <link>http://luolr.github.io/post/regex/</link>
+      <pubDate>Sat, 03 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://luolr.github.io/post/regex/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文的目标，就是让你能够了解正则是什么，怎么用，并且学的轻松，用的快乐：）
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>前端优化归纳总结</title>
+      <link>http://luolr.github.io/post/web-optimization/</link>
+      <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://luolr.github.io/post/web-optimization/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;作为一名合格的web开发人员，不应该仅仅满足于功能的实现，前端性能的优化也是我们必须要关注的问题。我们都不希望自己辛辛苦苦写成的代码，却因为优化不到位的问题，带给用户不好的体验。为此，我们需要做不少的工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;对于前端性能优化的讨论，一直都不是一个过时的话题，前有雅虎的35条黄金法则，后有O’Reilly 出版的两本性能优化圣经《高性﻿能网站建设指南》、《高性能网站建设进阶指南》，这些都将会是我们在探索性能优化道路上的指路明灯。那么，我们首先来看看雅虎的优化法则吧，我选取了其中的部分。
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

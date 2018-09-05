@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="如果使用github pages搭建一个自己的个人博客">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>使用GitHub Pages搭建静态网站 &middot; Luolr&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://luolr.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://luolr.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://luolr.github.io/css/my.css">
+  
+  
+    <script src="http://luolr.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://luolr.github.io/">BLOG</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/luolr" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>使用GitHub Pages搭建静态网站</h1>
+  <h2>如果使用github pages搭建一个自己的个人博客</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Aug 2018, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://luolr.github.io/tags/github">github</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>作为一个程序员，个人博客肯定是必不可少的，虽然大家都善用百度、谷歌，感觉搭个博客还不是小case。但我还是想水上一篇，毕竟老司机虽多，新人也不少嘛，顺带帮自己总结下经验。
+</p>
+
+<h3 id="前言">前言</h3>
+
+<p>目前网上有很多工具可以帮助我们快速搭建一个静态Web站点，常见的就有Hexo、Hugo、Jekyll和WordPress等，你可能听过甚至用过其中的一两个。在这些工具之中，目前比较火热的是Hexo和Hugo，至于Jekyll和WordPress作为前辈，已经渐渐淡出了人们的视线。</p>
+
+<p>至于Hexo和Hugo如何选择，我觉得都是可以的。Hexo的文档较为详细，主题和插件也比较丰富，适合喜欢折腾的朋友。而Hugo作为后起之秀，则更为轻量，网站编译的速度突出一个Fast，一个中等规模的静态网站几分之一秒内就可以生成出来。两者都有各自的特点，我个人更喜欢Hugo，所以下文我以Hugo为例。</p>
+
+<ul>
+<li><a href="http://www.gohugo.org">Hugo • 简单、易用、高效、快速部署</a></li>
+<li><a href="https://hexo.io/zh-cn">Hexo • 快速、简洁且高效的博客框架</a></li>
+<li><a href="https://www.jekyll.com.cn">Jekyll • 简单的博客、静态网站工具</a></li>
+<li><a href="https://codex.wordpress.org/zh-cn:Main_Page">WordPress • It&rsquo;s pretty old school</a></li>
+</ul>
+
+<h3 id="准备工作">准备工作</h3>
+
+<p>这些工具的安装都相当的简单，基本上几个命令就能搞定，以Hugo为例：</p>
+
+<pre><code>1. 安装 Homebrew
+$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+
+2. 安装Hugo
+$ brew install hugo
+
+3. 生成站点
+$ hugo new site siteName
+
+4. 安装皮肤
+$ cd siteName/themes
+$ git clone https://github.com/spf13/hyde.git
+
+5. 运行Hugo
+$ cd ..
+$ hugo server --theme=hyde --buildDrafts
+</code></pre>
+
+<p>然后，你就可以前往<code>localhost:1313</code>查看你的个人博客了。当然，Hugo也和其他生成工具一样，支持更换主题，可以根据自己的喜好安装不同的主题。</p>
+
+<h3 id="github-pages">GitHub Pages</h3>
+
+<p>Github Pages是一个静态站点托管系统，可以提供一个便捷的静态网站托管服务。它还为每个GitHub账号提供了一个免费的域名，假如你github的用户名是&rdquo;test&rdquo;，那么你就可以使用test.github.io的域名。</p>
+
+<p>首先，我们要有一个项目来存放代码。我们新建一个项目，如果你想通过test.github.io就可以直接访问到的话，可以直接将其作为项目名称。不过，每个github账号只能有一个这样的域名，所以一般用于个人博客。
+<img src="http://luolr.github.io/img/github_1.png" alt="new repository" /></p>
+
+<p>有项目之后，我们可以开始着手部署了。我们在Hugo项目的根目录下执行以下命令，顺利的话会生成一个 <code>public</code> 目录，网站的所有静态代码都在里面，将目录里所有文件拷至刚创建的GitHub项目中，然后 <code>push</code> 你的代码到远程的master分支。</p>
+
+<pre><code>$ hugo --theme=hyde --baseUrl=&quot;http://test.github.io/&quot;
+</code></pre>
+
+<p>想要使用    <code>GiHub Pages</code> 的服务，我们需要在项目中手动开启，在项目Settings中找到 <code>GitHub Pages</code> 版块，选择需要展示的分支，默认是master分支，稍等一会就会得到一个网址，那就说明你的网站已经生成成功啦。
+<img src="http://luolr.github.io/img/github_2.png" alt="new repository" /></p>
+
+<p>在实际使用中，GitHub Pages不只可以用来制作个人博客，像项目文档这样的静态资源也都可以使用这一服务。比如说，你和小伙伴正在写一个新的项目，作为一个优秀的项目，光写代码肯定不行啊，还需要一个完善的文档，一个小小的 <code>README</code> 恐怕是很难满足你。</p>
+
+<p>此时你可能遇到一个问题，这个文档我是否需要另起一个项目来维护呢，有没有更好的选择呢？当然是有的，GitHub Pages 支持你选择 master 以外的分支来作为你的网站源代码，你可以新建一个分支 <code>gh-pages</code> 用来专门存放你的网站静态资源。那么你可能会想，如何将一个项目的子目录作为一个新的分支的代码呢？</p>
+
+<p>这里我推荐一个工具：<code>Git Subtree</code>。</p>
+
+<h3 id="git-subtree">Git Subtree</h3>
+
+<p>git subtree 可以实现一个仓库作为其他仓库的子仓库。</p>
+
+<p><img src="http://luolr.github.io/img/github_3.png" alt="new repository" /></p>
+
+<p>git subtree的主要命令有：</p>
+
+<pre><code class="language-basic">git subtree add   --prefix=&lt;prefix&gt; &lt;commit&gt;
+git subtree add   --prefix=&lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
+git subtree pull  --prefix=&lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
+git subtree push  --prefix=&lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
+git subtree merge --prefix=&lt;prefix&gt; &lt;commit&gt;
+git subtree split --prefix=&lt;prefix&gt; [OPTIONS] [&lt;commit&gt;]
+</code></pre>
+
+<p>这里主要用到的是 push 这条命令，结合我们之前Hugo项目，我们的静态资源都生成在了<code>public</code> 文件夹下，此刻我们现在需要将该目录推至远端的gh-pages分支，那么可以使用如下命令：</p>
+
+<pre><code>$ git subtree push --prefix=public origin gh-pages
+</code></pre>
+
+<p>这样，我们就可以在愉快的在<code>GitHub Pages</code>中选取<code>gh-pages</code>分支啦。</p>
+
+<h4 id="参考资料">参考资料</h4>
+
+<ul>
+<li><a href="https://segmentfault.com/a/1190000012002151">git subtree教程 - SegmentFault</a></li>
+</ul>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://luolr.github.io/post/sideslip-deleting/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://luolr.github.io/post/sideslip-deleting/">微信小程序的侧滑删除实现</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="http://luolr.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
