@@ -39,28 +39,11 @@ paginate = 10
     weight = 2
     identifier = "post"
     url = "/post/"
-  [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 3
-    identifier = "about"
-    url = "/about/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
 
 [social]
   # Link your social networking accounts to the side menu
   # by entering your username or ID.
 
-  # SNS microblogging
-  weibo = "5798042594"
-
   # Techie
   github = "luolr"
-
-  # Gaming
-  steam = "605942239"
 
