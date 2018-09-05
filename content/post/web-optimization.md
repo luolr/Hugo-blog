@@ -15,10 +15,10 @@ author = "罗椋仁"
 ### [雅虎 17 条性能优化原则及其分类](https://developer.yahoo.com/performance/rules.html)：
 
 | 优化方向 | 优化手段  |
-| ------ | ------ |
+| :------ | :------ |
 | 请求数量 | 合并脚本和样式表，CSS Sprites，拆分初始化负载，划分主域 |
 | 请求带宽 | 开启 GZip，精简 JavaScript，移除重复脚本，图像优化 |
-| 缓存利用 | 使用 CDN，使用外部 JavaScript 和 CSS，添加 Expires 头，减少 DNS 查找，配置 ETag，使 AjaX 可缓存 |
+| 缓存利用 | 使用 CDN，使用外部 JavaScript 和 CSS，添加 Expires 头，减少DNS查找，配置ETag |
 | 页面结构 | 将样式表放在顶部，将脚本放在底部，尽早刷新文档的输出，延迟加载 JavaScript |
 | 代码校验 | 避免 CSS 表达式，避免重定向 |
 
