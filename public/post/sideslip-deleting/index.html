@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="来踩一踩小程序上侧滑删除的坑">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>微信小程序的侧滑删除实现 &middot; Luolr&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://luolr.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://luolr.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://luolr.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://luolr.github.io/css/my.css">
+  
+  
+    <script src="http://luolr.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://luolr.github.io/">BLOG</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://luolr.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/luolr" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>微信小程序的侧滑删除实现</h1>
+  <h2>来踩一踩小程序上侧滑删除的坑</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>10 Mar 2018, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://luolr.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F">微信小程序</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>最近这段时间，我一直都在和微信小程序打交道，在开发中也遇到了各种各样的问题，有些有意思的问题我会记录下来，方便以后回顾。
+比如最近接到一个需求，需要实现列表中的侧滑删除功能。这个功能在APP应用中十分常见，比如微信自身就有这个功能，不过在小程序上倒是很少见，主要是体验不好，原因后面也会讲到。
+</p>
+
+<h3 id="实现思路">实现思路</h3>
+
+<p>要实现侧滑删除的功能，说起来也并不复杂，只要用好<code>bindtouchstart</code>、<code>bindtouchmove</code>和<code>bindtouchend</code>这三个事件，在手指横向滑动的时候，记录起始的位置和移动的距离，通过为该列设置相应的style样式来实现该列的移动。</p>
+
+<p>至于删除按钮的显示，我们可以通过绝对定位设置重叠的两层，内容展示放在上层，删除按钮放在下层。这样，当上层跟随手指一起移动时，就会露出下层的删除按钮，当然，不要忘了设置上层可移动的最大距离为按钮的宽度。</p>
+
+<p>除此之外，我们还可以做一个小的优化，当上层滑动的距离大于按钮一半的宽度并松开手指时，自动让上层自动滑动到最左侧来露出完整的按钮，反之则上层回到原位。以下是实现的效果展示：</p>
+
+<p><img src="http://luolr.github.io/img/wxapp.gif" alt="demo" /></p>
+
+<h3 id="具体代码">具体代码</h3>
+
+<p>由于我这个项目是基于WePy框架开发的，如果是基于原生的语法开发的小程序，需要修改部分代码才可使用。</p>
+
+<pre><code>&lt;style lang=&quot;less&quot; scoped&gt;
+  .list-box {
+    padding-bottom: 204rpx;
+  }
+  .header {
+    padding: 36rpx 30rpx 24rpx;
+    color: #888888;
+  }
+  .w6 {
+    width: 6%;
+    display: inline-block;
+  }
+  .w6:after {
+    font-family: 'iconfont';
+    content: '&amp;#xe633;';
+    margin-right: 30rpx;
+    left: 0;
+    top: 0;
+    position: relative;
+    color: #09BB07;
+  }
+  .items {
+    background-color: #fff;
+    font-size: 32rpx;
+    font-weight: 400;
+
+    .item {
+      position: relative;
+      height: 100rpx;
+      line-height: 100rpx;
+      overflow: hidden;
+      border-bottom: solid 1rpx #E5E5E5;
+      background-color: #fff;
+      padding-left: 30rpx;
+
+      .inner {
+        position: absolute;
+        top: 0;
+      }
+
+      .inner.text {
+        width: 100%;
+        z-index: 5;
+        background-color: #fff;
+        transition: left 0.2s ease-in-out;
+      }
+
+      .inner.del {
+        width: 120rpx;
+        text-align: center;
+        color: #fff;
+        background-color: #e64340;
+        right: 0;
+        z-index: 4;
+        height: 100rpx;
+        line-height: 100rpx;
+      }
+    }
+    .item:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .footer {
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    padding: 50rpx 30rpx;
+  }
+&lt;/style&gt;
+&lt;template&gt;
+  &lt;view class=&quot;container&quot;&gt;
+    &lt;view class=&quot;list-box&quot;&gt;
+        &lt;view class=&quot;header&quot;&gt;保存记录&lt;/view&gt;
+        &lt;view class=&quot;items&quot;&gt;
+          &lt;repeat for=&quot;{{saveList}}&quot; item=&quot;item&quot; index=&quot;index&quot;&gt;
+            &lt;view class=&quot;item&quot;&gt;
+              &lt;view class=&quot;inner text&quot; bindtouchstart=&quot;touchStart({{index}})&quot; bindtouchmove=&quot;touchMove({{index}}, 'save')&quot; bindtouchend=&quot;touchEnd({{index}}, 'save')&quot; style=&quot;{{item.style}}&quot;&gt;
+                &lt;view class=&quot;w6&quot;&gt;&lt;/view&gt;
+                &lt;view class=&quot;w20 text-ellipsis&quot;&gt;{{item.name}}&lt;/view&gt;
+                &lt;view class=&quot;w12 text-ellipsis&quot;&gt;{{item.sex}}&lt;/view&gt;
+                &lt;view class=&quot;w32 text-ellipsis&quot;&gt;{{item.phone}}&lt;/view&gt;
+                &lt;view class=&quot;w30 text-ellipsis&quot;&gt;{{item.birthday}}&lt;/view&gt;
+              &lt;/view&gt;
+              &lt;view class=&quot;inner del&quot;&gt;删除&lt;/view&gt;
+            &lt;/view&gt;
+          &lt;/repeat&gt;
+        &lt;/view&gt;
+        &lt;view class=&quot;header&quot;&gt;家庭成员&lt;/view&gt;
+        &lt;view class=&quot;items&quot;&gt;
+          &lt;repeat for=&quot;{{familyList}}&quot; item=&quot;item&quot; index=&quot;index&quot;&gt;
+            &lt;view class=&quot;item&quot;&gt;
+              &lt;view class=&quot;inner text&quot; bindtouchstart=&quot;touchStart({{index}})&quot; bindtouchmove=&quot;touchMove({{index}}, 'family')&quot; bindtouchend=&quot;touchEnd({{index}}, 'family')&quot; style=&quot;{{item.style}}&quot;&gt;
+                &lt;view class=&quot;w6&quot;&gt;&lt;/view&gt;
+                &lt;view class=&quot;w20 text-ellipsis&quot;&gt;{{item.name}}&lt;/view&gt;
+                &lt;view class=&quot;w12 text-ellipsis&quot;&gt;{{item.sex}}&lt;/view&gt;
+                &lt;view class=&quot;w32 text-ellipsis&quot;&gt;{{item.phone}}&lt;/view&gt;
+                &lt;view class=&quot;w30 text-ellipsis&quot;&gt;{{item.birthday}}&lt;/view&gt;
+              &lt;/view&gt;
+              &lt;view class=&quot;inner del&quot;&gt;删除&lt;/view&gt;
+            &lt;/view&gt;
+          &lt;/repeat&gt;
+        &lt;/view&gt;
+    &lt;/view&gt;
+  &lt;/view&gt;
+  &lt;view class=&quot;footer&quot;&gt;
+    &lt;button class=&quot;btn-success&quot;&gt;新增就诊人&lt;/button&gt;
+  &lt;/view&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import wepy from 'wepy'
+
+  export default class Reservation extends wepy.page {
+    config = {
+      navigationBarTitleText: '选择就诊人'
+    };
+
+    data = {
+      delBtnWidth: 60,  // 删除按钮的宽度，单位是px
+      startX: '',
+      style: '',
+      saveList: [{
+        id: 3,
+        name: '灰原哀',
+        sexCode: 2,
+        sex: '女',
+        phone: '13040506070',
+        birthday: '1989-03-03'
+      }, {
+        id: 4,
+        name: '园子',
+        sexCode: 2,
+        sex: '女',
+        phone: '13040506070',
+        birthday: '1989-06-26'
+      }],
+      familyList: [{
+        id: 1,
+        name: '工藤新一',
+        sexCode: 1,
+        sex: '男',
+        phone: '13040506070',
+        birthday: '1989-02-23'
+      }, {
+        id: 2,
+        name: '毛利兰',
+        sexCode: 2,
+        sex: '女',
+        phone: '13040506070',
+        birthday: '1989-04-11'
+      }]
+    };
+
+    methods = {
+      touchStart: function(index) {
+        if (arguments[1].touches.length == 1) {
+          this.startX = arguments[1].touches[0].clientX;
+        }
+      },
+      touchMove: function(index, type) {
+        if (arguments[2].touches.length == 1) {
+          const moveX = arguments[2].touches[0].clientX;  // 手指移动结束后水平位置
+          const distant = this.startX - moveX;            // 触摸开始与结束，手指移动的距离
+          let style = '';
+
+          if (distant &lt;= 0) {              // 如果移动距离小于等于0，文本层位置不变
+            style = 'left: 15px';
+          } else {                       // 移动距离大于0，文本层left值等于手指移动距离
+            style = `left: -${distant}px`;
+            if (distant &gt;= this.delBtnWidth) {
+              style = `left: -${this.delBtnWidth}px`;
+            }
+          }
+
+          if (type === 'save') {
+            this.saveList[index]['style'] = style
+          } else {
+            this.familyList[index]['style'] = style
+          }
+        }
+      },
+      touchEnd: function(index, type) {
+        if (arguments[2].changedTouches.length == 1) {
+          const moveX = arguments[2].changedTouches[0].clientX;  // 手指移动结束后水平位置
+          const distant = this.startX - moveX;                   // 触摸开始与结束，手指移动的距离
+          const delBtnWidth = this.delBtnWidth;
+          let style = distant &gt; delBtnWidth / 2 ? `left: -${delBtnWidth}px` : 'left: 15px';
+
+          if (type === 'save') {
+            this.saveList[index]['style'] = style
+          } else {
+            this.familyList[index]['style'] = style
+          }
+        }
+      }
+    };
+  }
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="事情还没完">事情还没完</h3>
+
+<p>在实现效果之后，本以为大功告成，却在真机上体验时出现了问题，当我的手指在列表上进行水平滑动时，很容易会引起垂直方向上的移动，导致一种结果，那就是在水平滑动时，整个页面经常会被上下拉扯一下，体验非常不好。毕竟，我们不能指望用户都是完美的水平移动。</p>
+
+<p>那么怎么解决这个问题呢，毕竟这是由于小程序提供的垂直方向上的滚动效果导致的，原本是为下拉刷新等API服务的。可能也正是因为这个原因，所以小程序上的侧滑删除功能才不那么常见？</p>
+
+<p>不过问题还是要解决，我首先考虑的是否能够禁掉小程序自带的页面滚动效果，查阅了下资料，还真有，可以通过在 <strong>page.json</strong> 中配置 <strong>disableScroll: true</strong> 来实现。不过，在我加上该项后，结果整个页面都滚不了了，经过调试才发现，好家伙，直接在根节点上加了一个 <strong>overflow-y: hidden</strong> 的样式，怪不得整个页面都滚不动了。好吧，这条路算是走不通了。</p>
+
+<p>然后我想起来小程序里scroll-view可以控制页面的滚动与否，于是把原本的节点换成scroll-view，然后通过对滑动时的垂直方向的移动与否对<code>scroll-y</code>属性进行动态设置。可惜理想很丰满，现实却很骨感，scroll-view的性能实在是太差了，当节点过多，又涉及到大量的绝对定位布局时，在滚动时会出现非常明显的渲染问题，删除按钮会在滑动时显示出来，或者滑动不流畅，体验很差。好吧，这条路貌似也走不通。</p>
+
+<h3 id="结论">结论</h3>
+
+<p>到了这个时候，我对于小程序上为什么很少出现侧滑删除效果，表示大大的理解。所以，如果产品是对体验要求非常严格的同学，建议不要去踩侧滑删除这个坑，目前我还没找到这个的最佳实践。如果列表项不多，不涉及到列表的滑动时，倒是可以考虑禁掉整个页面的滚动。</p>
+
+<p>当然，我也会继续思考这个问题，如果有了较好的解决方案，我会继续更新的。</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://luolr.github.io/post/regex/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://luolr.github.io/post/regex/">正则那些事</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://luolr.github.io/post/github-pages/">使用GitHub Pages搭建静态网站</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://luolr.github.io/post/github-pages/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="http://luolr.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
