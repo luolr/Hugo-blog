@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CSS的各种单位">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  <title>谈谈CSS中的单位 &middot; Luolr&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://luolr.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://luolr.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://luolr.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://luolr.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://luolr.github.io/css/my.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://luolr.github.io/">BLOG</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://luolr.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://luolr.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/luolr" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>谈谈CSS中的单位</h1>
+  <h2>CSS的各种单位</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Apr 2019, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://luolr.github.io/tags/css">css</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <h2 id="谈谈css中的单位">谈谈CSS中的单位</h2>
+
+<blockquote>
+<p>在几年前，前端大都还只是一个“切图仔”的时候，CSS中用到的单位大多只有“px”，不过都9102年了，情况是否发生了变化呢？</p>
+</blockquote>
+
+<p>众所周知，前端在近几年发展迅速，各种概念、框架层出不穷。作为前端的重要组成部分的CSS，在这几年也有了较大的发展，前有<code>less</code>、<code>sass</code>之类的预处理语言出现，后有<code>flex</code>和<code>grid</code>这样的布局方案大行其道，甚至在CSS中最常用的单位上，也呈现出百花齐放的景象。今天我们就来聊一聊CSS中的单位。</p>
+
+<p>CSS中的单位还是蛮多的，“px”作为css届的老大哥，想必学习前端的小伙伴无人不识。不过至于后面冒出来的“小弟”，像是<code>em</code>、<code>rem</code>、<code>vw</code>、<code>ex</code> 等，可能就不一定能认得全了。这里就先介绍一下这几位“小弟”：</p>
+
+<p>em（font size of the element），相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算，否则按照 1em=16px 来计算（浏览器默认字体是16px），在国外用的比较多。</p>
+
+<p>rem（font size of the root element），相对单位，和em很相似，只是em是根据父元素计算，而rem是根据根元素（Html）的字体大小来计算，在国内比较流行，多用于移动端适配。</p>
+
+<p>vw（viewport width），视窗宽度，根据视窗的百分比来计算，1vw等于视窗宽度的1%。类似的还有<code>vh</code>、<code>vmin</code>、<code>vmax</code>，其他<code>vmin</code> 和 <code>vmax</code> 等于视窗高度和宽度两者的最小或者最大值。浏览器支持的时间较晚，国内流行度不高。</p>
+
+<p>ex 和 ch 单位，类似于 em 和 rem, 依赖于当前的字体和字体大小。 但是，不同的是，这两货是基于字体的度量单位，依赖于设定的字体。多用于一些板式的微调，如角标。</p>
+
+<hr />
+
+<p>接下来进入正题了，这么多单位怎么用？</p>
+
+<p>在实际使用中，我们在PC端直接使用px 来书写往往是没什么问题的，纠结最多的其实是移动端的适配问题。</p>
+
+<p>移动端适配，指产品适应不同尺寸的手机屏幕。由于现在手机市场百花齐放，除了苹果年年用旧模具造新手机之外，各大安卓厂商充分发挥了自己的想象力，做出来的手机屏幕尺寸、分辨率五花八门，这就导致了在市面同时存在着几十种不同的型号、尺寸。</p>
+
+<p>这下前端就头大了，如何拿着设计给的750px的设计稿，实现出能适配所有手机的效果呢？前端同学想了想，有了以下几种解决方案：</p>
+
+<ol>
+<li>媒体查询（@media）</li>
+<li>使用flex弹性布局</li>
+<li>使用rem 作为单位来书写，viewport缩放</li>
+</ol>
+
+<h3 id="媒体查询">媒体查询</h3>
+
+<p>使用媒体查询，即针对不同尺寸的屏幕定义不同的样式，是jQuery时代的解决方案，其中以<code>Bootstrap</code> 为代表。优点是可以做到一套代码同时运行在PC、iPad、移动端。此外，屏幕尺寸改变时，不同刷新即时就能看到新的展示效果。</p>
+
+<p>不过缺点也很明显：</p>
+
+<ul>
+<li>代码量比较大，维护不方便</li>
+<li>为了兼顾大屏幕或高清设备，会造成其他设备资源浪费，特别是加载图片资源</li>
+<li>为了兼顾移动端和PC端各自响应式的展示效果，难免会损失各自特有的交互方式</li>
+</ul>
+
+<p>总体而言，算是比较老的解决方案，增加的工作量和实现的效果一比，显得性价比不高，不太推荐。</p>
+
+<h3 id="flex弹性布局">flex弹性布局</h3>
+
+<p>使用flex布局的主要思想，就是定高不定宽，不管屏幕有多宽有多大都自适应，跟PC上的流式布局是一个思路。这样做确实可以适配一些以图文为主的页面，但不适用于功能复杂的系统，局限性比较大，不太推荐。</p>
+
+<h3 id="rem">rem</h3>
+
+<p>好了，传统的方案看起来都不行，那就换个思路，我就按照750px来写，最后再缩放一下不就好了。作为一个相对单位，rem就被前端同学选择作为书写的基本单位，配合viewport缩放。</p>
+
+<p>方案一：rem 简单版</p>
+
+<p>简单来说，就是根据设计稿都是750px的基础，计算根节点<code>font-size</code>的大小，然后设置meta标签的缩放比为1，使用rem来书写样式。实现起来比较简单，不过在某些尺寸的屏幕上缩放后显得有些糊，随后便有了方案二。</p>
+
+<p>方案二：rem 高清版</p>
+
+<p>所谓的高清方案就是根据设备屏幕的DPR（设备像素比，又称DPPX，比如dpr=2时，表示1个CSS像素由4个物理像素点组成） 动态设置 html 的font-size, 同时根据设备DPR调整页面的缩放值，进而达到高清效果。同样使用rem作为基础单位来书写样式。</p>
+
+<p>这么做的优势：</p>
+
+<ul>
+<li>根据设备屏幕的DPR,自动设置最合适的高清缩放。</li>
+<li>保证了不同设备下视觉体验的一致性。（老方案是屏幕越大，看的越多）</li>
+<li>有效解决移动端真实1px问题（这里的1px 是设备屏幕上的物理像素）</li>
+</ul>
+
+<p>那么缺点呢：</p>
+
+<ul>
+<li>简单的缩放处理，使得页面基本无法兼容PC端、iPad端</li>
+<li>rem 作为相对单位，最后渲染出来的元素会有像素差（可能）</li>
+<li>使用富文本时，由于外部的viewport被缩放了，富文本内部使用px作为单位的部分就会显示异常</li>
+<li>rem 在移动端存在部分显示Bug，例如：使用rem设置height和line-height相同时文字却没有垂直居中？</li>
+</ul>
+
+<p><img src="https://luolr.github.io/img/unit_in_css/rem_mid_bug.png" alt="无法垂直居中" /></p>
+
+<p>虽说有些不足，不过使用rem的方案还是比较“完美”的解决了移动端适配的问题。大家虽然手持不同的尺寸手机，但是看到的都是同一个样子，多一点不多，少一点不少，十分“公平”。好了，这下产品、设计、交互、前端都轻松了，只需出一个750px的设计稿，前端照着写就行了，皆大欢喜。</p>
+
+<p>不过归根结底，rem其实也是根据宽高等比缩放的思想来实现适配的，从这个角度来说，rem只能算做vw、vh 的备胎，因为它俩天生就是干这个的。</p>
+
+<p>至于为什么vw、vh 没火起来呢，主要还是由于这俩被浏览器支持得太晚导致的。当时移动端的需求已经十分旺盛了，而安卓端很多浏览器都还不支持，等你支持了黄花菜都凉了，这才让rem成功上了位，不然谁更火还真不好说。</p>
+
+<p>rem 的支持情况：</p>
+
+<p><img src="https://luolr.github.io/img/unit_in_css/rem_support.jpg" alt="rem" /></p>
+
+<p>vw 的支持情况：</p>
+
+<p><img src="https://luolr.github.io/img/unit_in_css/vw_support.jpg" alt="vw" /></p>
+
+<p>不过现在安卓端最新浏览器对vw、vh 已经没有了兼容性问题，可以大胆的使用。</p>
+
+<h3 id="px的现状">px的现状</h3>
+
+<p>这么看下来，px作为旧时代的产物，是不是可以退场了呢？</p>
+
+<p>恰恰相反，很多知名的开源项目的源码都是用px 写的，比如Ant-design：</p>
+
+<p><img src="https://luolr.github.io/img/unit_in_css/ant-source.png" alt="Ant-design" /></p>
+
+<p>看到这个，大家可能就有了疑问，rem、em这些不都是很好用的嘛，怎么还是要用px来写呢？</p>
+
+<p>rem虽然是一柄利器，但是也有它的局限性，跟其他工具搭配起来使用才能发挥出最大的效果。为了更好的兼容性，一般的做法是源码使用px来书写，再使用<code>PostCss</code> 工具（postcss-pxtorem、postcss-pxtovw之类），在编译过程中将px转换为rem或者vw。这样做的好处是不需要关心根元素的字体大小，又可以配合项目需要转换成想要的单位，在pc端使用也不会完全没问题。</p>
+
+<p>所以，在不同的情况下使用的单位也是不同的，需要结合自己的需求选择合适的单位，切勿盲从跟风。</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://luolr.github.io/post/github-pages/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://luolr.github.io/post/github-pages/">使用GitHub Pages搭建静态网站</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://luolr.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on Luolr&#39;s Blog</title>
-    <link>https://luolr.github.io/categories/github/</link>
-    <description>Recent content in Github on Luolr&#39;s Blog</description>
+    <title>Css on Luolr&#39;s Blog</title>
+    <link>https://luolr.github.io/tags/css/</link>
+    <description>Recent content in Css on Luolr&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Mon, 01 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://luolr.github.io/categories/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luolr.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,15 +25,6 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;众所周知，前端在近几年发展迅速，各种概念、框架层出不穷。作为前端的重要组成部分的CSS，在这几年也有了较大的发展，前有&lt;code&gt;less&lt;/code&gt;、&lt;code&gt;sass&lt;/code&gt;之类的预处理语言出现，后有&lt;code&gt;flex&lt;/code&gt;和&lt;code&gt;grid&lt;/code&gt;这样的布局方案大行其道，甚至在CSS中最常用的单位上，也呈现出百花齐放的景象。今天我们就来聊一聊CSS中的单位。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用GitHub Pages搭建静态网站</title>
-      <link>https://luolr.github.io/post/github-pages/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://luolr.github.io/post/github-pages/</guid>
-      <description>&lt;p&gt;作为一个程序员，个人博客肯定是必不可少的，虽然大家都善用百度、谷歌，感觉搭个博客还不是小case。但我还是想水上一篇，毕竟老司机虽多，新人也不少嘛，顺带帮自己总结下经验。&lt;/p&gt;</description>
     </item>
     
   </channel>

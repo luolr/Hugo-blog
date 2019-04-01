@@ -6,7 +6,7 @@
     <description>Recent content in 微信小程序 on Luolr&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Sat, 10 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://luolr.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
@@ -19,8 +19,7 @@
       
       <guid>https://luolr.github.io/post/sideslip-deleting/</guid>
       <description>&lt;p&gt;最近这段时间，我一直都在和微信小程序打交道，在开发中也遇到了各种各样的问题，有些有意思的问题我会记录下来，方便以后回顾。
-比如最近接到一个需求，需要实现列表中的侧滑删除功能。这个功能在APP应用中十分常见，比如微信自身就有这个功能，不过在小程序上倒是很少见，主要是体验不好，原因后面也会讲到。
-&lt;/p&gt;</description>
+比如最近接到一个需求，需要实现列表中的侧滑删除功能。这个功能在APP应用中十分常见，比如微信自身就有这个功能，不过在小程序上倒是很少见，主要是体验不好，原因后面也会讲到。&lt;/p&gt;</description>
     </item>
     
   </channel>
