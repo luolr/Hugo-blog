@@ -1,7 +1,7 @@
 +++
 categories = ["github"]
 date = "2018-08-30"
-description = "如果使用github pages搭建一个自己的个人博客"
+description = "如何使用github pages搭建一个自己的个人博客"
 tags = ["github"]
 title = "使用GitHub Pages搭建静态网站"
 author = "罗椋仁"

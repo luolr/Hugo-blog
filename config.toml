@@ -2,7 +2,7 @@ baseURL = "http://luolr.github.io/"
 languageCode = "zh-cn"
 title = "Luolr's Blog"
 theme = "blackburn"
-copyright = "&copy; 2018. All rights reserved."
+copyright = "&copy; 2019. All rights reserved."
 canonifyurls = true
 paginate = 10
 
